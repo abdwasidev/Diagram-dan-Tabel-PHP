@@ -26,7 +26,6 @@
                     <a href="index.php" class="nav-item nav-link active">Home</a>
                     <a href="tabel.php" class="nav-item nav-link">Table</a>
                     <a href="diagram.php" class="nav-item nav-link">Charts</a>
-                    <a href="./CRUD/index.php" class="nav-item nav-link">CRUD</a>
                 </div>
                 <div class="navbar-nav ms-auto">
                     <a href="koneksi.php" class="nav-item nav-link">Cek Koneksi</a>
