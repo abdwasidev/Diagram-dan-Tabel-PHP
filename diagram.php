@@ -47,27 +47,15 @@
             <div class="card-header">
                 <ul class="nav nav-pills card-header-pills">
                     <li class="nav-item">
-                        <a href="#versia" class="nav-link active" data-bs-toggle="tab">Versi A</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#versib" class="nav-link" data-bs-toggle="tab">Versi B</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#versic" class="nav-link" data-bs-toggle="tab">Versi C</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#versid" class="nav-link" data-bs-toggle="tab">Versi D</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#versie" class="nav-link" data-bs-toggle="tab">Versi E</a>
+                        <a href="#level" class="nav-link active" data-bs-toggle="tab">Level</a>
                     </li>
                 </ul>
             </div>
             <div class="card-body">
                 <div class="tab-content">
-                    <div class="tab-pane fade show active" id="versia">
+                    <div class="tab-pane fade show active" id="level">
                         <!-- TAB CONTENT -->
-                        <h5 class="card-title">Kombinasi level dan tanggal</h5>
+                        <h5 class="card-title">Kombinasi level</h5>
                         <p class="card-text">Level: Banyak data yang ada tiap value (nilai data) pada atribut level. Tanggal: Banyak transakasi yang terjadi dalam 1 hari.</p>
                         <!-- DIAGRAM START -->
                         <?php
@@ -85,10 +73,10 @@
                         }
                         ?>
                         <div class="container">
-                            <canvas id="versiAinLevel" width="100" height="100"></canvas>
+                            <canvas id="versiLevel" width="100" height="100"></canvas>
                         </div>
                         <script>
-                            var ctx = document.getElementById("versiAinLevel");
+                            var ctx = document.getElementById("versiLevel");
                             var myChart = new Chart(ctx, {
                                 type: 'line',
                                 data: {
@@ -234,151 +222,6 @@
                                 }
                             });
                         </script>
-                        <!-- DIAGRAM END -->
-                        <!-- DIAGRAM START -->
-                        <?php
-
-                        $query = mysqli_query($conn,"SELECT * FROM btc");
-                        if ($query) {
-                            $view = array();
-                            if (mysqli_num_rows($query)>0) {
-                                while ($row = mysqli_fetch_assoc($query)) {
-                                $view[] = $row['tanggal'];
-                                }
-                            }
-                        }else{
-                            echo "no";
-                        }
-                        ?>
-                        <br><br>
-                        <div class="container">
-                            <canvas id="versiAinTanggal" width="100" height="100"></canvas>
-                        </div>
-                        <script>
-                            var ctx = document.getElementById("versiAinTanggal");
-                            var myChart = new Chart(ctx, {
-                                type: 'line',
-                                data: {
-                                    labels: [
-                                        "0000-00-00", 
-                                        "2022-04-29", 
-                                        "2022-04-30",
-                                        "2022-05-01",
-                                        "2022-05-02",
-                                        "2022-05-03",
-                                        "2022-05-04",
-                                        "2022-05-05",
-                                        "2022-05-06",
-                                        "2022-05-07",
-                                        "2022-05-08",
-                                        "2022-05-09",
-                                        "2022-05-10",
-                                        "2022-05-11"
-                                    ],
-                                    datasets: [{
-                                            label: '# View \"Tanggal\"',
-                                            data: [
-                                                <?php 
-                                                $jumlah_tgl00 = mysqli_query($conn,"SELECT * from btc where tanggal=0000-00-00");
-                                                echo mysqli_num_rows($jumlah_tgl00);
-                                                ?>, 
-                                                <?php 
-                                                $jumlah_tgl0429 = mysqli_query($conn,"SELECT * from btc where tanggal=2022-04-29");
-                                                echo mysqli_num_rows($jumlah_tgl0429);
-                                                ?>, 
-                                                <?php 
-                                                $jumlah_tgl0430 = mysqli_query($conn,"SELECT * from btc where tanggal=2022-04-30");
-                                                echo mysqli_num_rows($jumlah_tgl0430);
-                                                ?>,
-                                                <?php 
-                                                $jumlah_tgl0501 = mysqli_query($conn,"SELECT * from btc where tanggal=2022-05-01");
-                                                echo mysqli_num_rows($jumlah_tgl0501);
-                                                ?>,
-                                                <?php 
-                                                $jumlah_tgl0502 = mysqli_query($conn,"SELECT * from btc where tanggal=2022-05-02");
-                                                echo mysqli_num_rows($jumlah_tgl0502);
-                                                ?>,
-                                                <?php 
-                                                $jumlah_tgl0503 = mysqli_query($conn,"SELECT * from btc where tanggal=2022-05-03");
-                                                echo mysqli_num_rows($jumlah_tgl0503);
-                                                ?>,
-                                                <?php 
-                                                $jumlah_tgl0504 = mysqli_query($conn,"SELECT * from btc where tanggal=2022-05-04");
-                                                echo mysqli_num_rows($jumlah_tgl0504);
-                                                ?>,
-                                                <?php 
-                                                $jumlah_tgl0505 = mysqli_query($conn,"SELECT * from btc where tanggal=2022-05-05");
-                                                echo mysqli_num_rows($jumlah_tgl0505);
-                                                ?>,
-                                                <?php 
-                                                $jumlah_tgl0506 = mysqli_query($conn,"SELECT * from btc where tanggal=2022-05-06");
-                                                echo mysqli_num_rows($jumlah_tgl0506);
-                                                ?>,
-                                                <?php 
-                                                $jumlah_tgl0507 = mysqli_query($conn,"SELECT * from btc where tanggal=2022-05-07");
-                                                echo mysqli_num_rows($jumlah_tgl0507);
-                                                ?>,
-                                                <?php 
-                                                $jumlah_tgl0508 = mysqli_query($conn,"SELECT * from btc where tanggal=2022-05-08");
-                                                echo mysqli_num_rows($jumlah_tgl0508);
-                                                ?>,
-                                                <?php 
-                                                $jumlah_tgl0509 = mysqli_query($conn,"SELECT * from btc where tanggal=2022-05-09");
-                                                echo mysqli_num_rows($jumlah_tgl0509);
-                                                ?>,
-                                                <?php 
-                                                $jumlah_tgl0510 = mysqli_query($conn,"SELECT * from btc where tanggal=2022-05-10");
-                                                echo mysqli_num_rows($jumlah_tgl0510);
-                                                ?>,
-                                                <?php 
-                                                $jumlah_tgl0511 = mysqli_query($conn,"SELECT * from btc where tanggal=2022-05-11");
-                                                echo mysqli_num_rows($jumlah_tgl0511);
-                                                ?>
-                                            ],
-                                            backgroundColor: '#9BA3EB',
-                                            borderColor: '#000',
-                                            borderWidth: 1
-                                        }]
-                                },
-                                options: {
-                                    scales: {
-                                        yAxes: [{
-                                                ticks: {
-                                                    beginAtZero: true
-                                                }
-                                            }]
-                                    }
-                                }
-                            });
-                        </script>
-                        <!-- DIAGRAM END -->
-                    </div>
-                    <div class="tab-pane fade" id="versib">
-                        <!-- TAB CONTENT -->
-                        <h5 class="card-title">Kombinasi level dan tanggal menurut jenisnya</h5>
-                        <p class="card-text">Here is some example text to make up the tab's content. Replace it with your own text anytime.</p>
-                        <!-- DIAGRAM START -->
-                        <!-- DIAGRAM END -->
-                    </div>
-                    <div class="tab-pane fade" id="versic">
-                        <!-- TAB CONTENT -->
-                        <h5 class="card-title">Sama seperti versi A dan B tapi ditambahkan date-picker</h5>
-                        <p class="card-text">Here is some example text to make up the tab's content. Replace it with your own text anytime.</p>
-                        <!-- DIAGRAM START -->
-                        <!-- DIAGRAM END -->
-                    </div>
-                    <div class="tab-pane fade" id="versid">
-                        <!-- TAB CONTENT -->
-                        <h5 class="card-title">Sama seperti versi C tapi atribut level diganti volume BTC atau Rp.</h5>
-                        <p class="card-text">Here is some example text to make up the tab's content. Replace it with your own text anytime.</p>
-                        <!-- DIAGRAM START -->
-                        <!-- DIAGRAM END -->
-                    </div>
-                    <div class="tab-pane fade" id="versie">
-                        <!-- TAB CONTENT -->
-                        <h5 class="card-title">Sama seperti versi C tapi atributnya diganti dengan last buy dan last sell</h5>
-                        <p class="card-text">Here is some example text to make up the tab's content. Replace it with your own text anytime.</p>
-                        <!-- DIAGRAM START -->
                         <!-- DIAGRAM END -->
                     </div>
                 </div>
